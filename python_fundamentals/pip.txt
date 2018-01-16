@@ -1,0 +1,43 @@
+pip install Django
+	had some trouble here. apparently django v 1.12 isn't working with my setup of python 2.7 and ubuntu 16.04.
+	was getting an error during installation:
+		AttributeError: 'module' object has no attribute 'lru_cache'
+	after some googling, I found using version 1.11 (pip install Django==1.11) worked for me.
+
+pip list
+	response:
+		adium-theme-ubuntu (0.3.4)
+		Django (1.11)
+		pip (9.0.1)
+		pygobject (3.20.0)
+		pytz (2017.3)
+		pyudev (0.16.1)
+		setuptools (20.7.0)
+		unity-lens-photos (1.0)
+		wheel (0.29.0)
+	lists the packages installed/tracked by pip (by python?)
+
+pip install Django (again)
+	response:
+		Requirement already satisfied: Django in /usr/local/lib/python2.7/dist-packages
+		Requirement already satisfied: pytz in /usr/local/lib/python2.7/dist-packages (from Django)
+	confirms that it's already installed
+
+pip freeze
+	response:
+		adium-theme-ubuntu==0.3.4
+		Django==1.11
+		pygobject==3.20.0
+		pytz==2017.3
+		pyudev==0.16.1
+		unity-lens-photos==1.0
+	returns most of the packages shown by "pip list", but formatted a little differently?
+
+pip uninstall Django
+	starts to uninstall Django (cancelled at the y/n confirm prompt)
+
+pip show Django
+	shows the details of the currently installed version of Django
+
+pip search Flask
+	returns a list of all of the packages that contain the word "Flask"
