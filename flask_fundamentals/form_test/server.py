@@ -10,8 +10,8 @@ def create_user():
     print "Got Post Info"
     name = request.form['name']
     email = request.form['email']
-    print request.form
-    # return redirect('/')
-    return render_template("success.html")
+    # print request.form
+    return redirect('/')
+    # return render_template("success.html")
 
 app.run(debug=True)
