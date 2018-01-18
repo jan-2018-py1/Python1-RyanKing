@@ -8,7 +8,7 @@ def index():
         session["counter"] += 1
     else:
         session["counter"] = 0
-    return render_template("index.html", counter=session["counter"])
+    return render_template("index.html")
 
 @app.route('/add2')
 def add2():
