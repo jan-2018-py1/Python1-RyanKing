@@ -8,7 +8,10 @@ def index():
 
 @app.route('/users', methods=['POST'])
 def create_user():
+    print "==============================================="
     print "Got Post Info"
+    print "==============================================="
+
     session["name"] = request.form['name']
     session["email"] = request.form['email']
     # print request.form
