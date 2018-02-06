@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>The Wall</title>
+    </head>
+    <body>
+        {% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+					<p>{{message}}</p>
+				{% endfor %}
+            {% endif %}
+		{% endwith %}
+        <h2>Login:</h2>
+        <form action="/login" method="post">
+            Email: <input type="text" name="email"><br>
+            Password: <input type="password" name="password"><br>
+            <input type="submit">
+        </form><br>
+        <h2>Register a new account:</h2>
+        <form action="/register" method="post">
+            First Name: <input type="text" name="first_name"><br>
+            Last Name: <input type="text" name="last_name"><br>
+            Email: <input type="text" name="email"><br>
+            Password: <input type="password" name="password"><br>
+            Confirm Password: <input type="password" name="confirm"><br>
+            <input type="submit">
+        </form>
+    </body>
+</html>

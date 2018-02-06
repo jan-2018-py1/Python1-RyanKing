@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>The Wall</title>
+        <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        <h2>Welcome, {{ first_name }}!</h2>
+        <form action="/logout">
+            <input type="submit" value="Log Out">
+        </form>
+        <hr>
+
+        <h2>Post a message:</h2>
+        <form action="/post" method="post">
+            <textarea name="post" cols="80" rows="5">Create a new post!</textarea>
+            <input type="submit" value="Post!">
+        </form>
+        <div id="posts">
+            {% for message in all_messages: %}
+                <h4>{{ message["poster_first_name"] }} {{ message["poster_last_name"] }} - {{ message["post_date"]}}:</h4>
+                <p>{{ message["post"]}}</p>
+                <div class="comments">
+                    {% for comment in all_comments: %}
+                        {% if comment["post_id"] == message["post_id"]: %}
+                            <h4>{{ comment["commenter_first_name"] }} {{ comment["commenter_last_name"] }} - {{ comment["comment_date"]}}</h4>
+                            <p>{{ comment.comment }}</p>
+                        {% endif %}
+                    {% endfor %}
+                    <form action="/comment" method="post">
+                        <input type="hidden" name="post_id" value={{message.post_id}}>
+                        <textarea name="comment" cols="80" rows="5">Add a comment here!</textarea>
+                        <input type="submit">
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
