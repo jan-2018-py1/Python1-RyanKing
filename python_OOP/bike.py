@@ -18,6 +18,8 @@ class Bike(object):
     def reverse(self):
         print "Reversing"
         self.miles -= 5
+        if self.miles < 0:
+            self.miles = 0
         return self
 
 bike1 = Bike(200, "25mph")
