@@ -1,0 +1,38 @@
+#left {
+    display: inline-block;
+    width: 400px;
+    border-right: 3px solid black;
+}
+
+#right {
+    display: inline-block;
+    vertical-align: top;
+    width: 400px;
+}
+
+.red {
+    color: red;
+}
+
+.big_red {
+    color: red;
+    font-size: 32px;
+}
+
+.green {
+    color: green;
+}
+
+.big_green {
+    color: green;
+    font-size: 32px;
+}
+
+.blue {
+    color: blue;
+}
+
+.big_blue {
+    color: blue;
+    font-size: 32px;
+}
