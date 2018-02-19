@@ -21,8 +21,6 @@ def process_money(req, building):
         new_gold = random.randint(10, 20)
         req.session["gold"] += new_gold
         req.session["activities"] += "Earned {} gold from the farm!\n".format(new_gold)
-        print "farm:", new_gold
-        print req.session["activities"]
     elif building == "cave":
         new_gold = random.randint(5, 10)
         req.session["gold"] += new_gold
@@ -40,7 +38,6 @@ def process_money(req, building):
             req.session["activities"] += "Entered a casino and lost {} gold...ouch!\n".format(abs(new_gold))
         else:
             req.session["activities"] += "Entered a casino and won {} gold...yay!\n".format(new_gold)
-
     return redirect('/')
 
 def clear(req):
