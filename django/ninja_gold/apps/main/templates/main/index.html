@@ -2,9 +2,46 @@
 <html>
     <head>
         <meta charset="utf-8">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'main/style.css' %}">
         <title>Ninja Gold</title>
     </head>
     <body>
-        <h2>test</h2>
+        Your Gold: {{gold}}<br>
+        <div class="action">
+            <h2>Farm</h2>
+            <h4>(earns 10-20 gold)</h4>
+            <form action="/process_money/farm" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="action">
+            <h2>Cave</h2>
+            <h4>(earns 5-10 gold)</h4>
+            <form action="/process_money/cave" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="action">
+            <h2>House</h2>
+            <h4>(earns 2-5 gold)</h4>
+            <form action="/process_money/house" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="action">
+            <h2>Casino</h2>
+            <h4>(earns/takes 0-50 gold)</h4>
+            <form action="/process_money/casino" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div><br>
+        Activities:<br>
+        <textarea name="activities" cols="50" rows="30">{{activities}}</textarea>
+        <form action="/clear"><input type="submit" value="Clear"></form>
     </body>
 </html>
