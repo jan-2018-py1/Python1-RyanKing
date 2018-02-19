@@ -4,5 +4,5 @@ from __future__ import unicode_literals
 from django.apps import AppConfig
 
 
-class MainConfig(AppConfig):
-    name = 'main'
+class BookAuthorsConfig(AppConfig):
+    name = 'book_authors'
