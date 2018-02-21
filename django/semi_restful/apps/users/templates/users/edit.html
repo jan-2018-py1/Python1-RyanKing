@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Edit User {{id}}</title>
+    </head>
+    <body>
+        <h1>Edit User {{id}}</h1>
+        <form action="/users/update" method="POST">
+            {% csrf_token %}
+            First Name:<br>
+            <input type="text" name="first_name"><br>
+            Last Name:<br>
+            <input type="text" name="last_name"><br>
+            Email:<br>
+            <input type="text" name="email"><br>
+            <input type="hidden" name="id" value="{{id}}">
+            <input type="submit" value="Update">
+        </form>
+        <a href="/users">Go Back</a>
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{message}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </body>
+</html>
