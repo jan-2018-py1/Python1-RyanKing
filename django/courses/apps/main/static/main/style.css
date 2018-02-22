@@ -1,0 +1,26 @@
+.form_input {
+    vertical-align: top;
+}
+
+#add_button {
+    margin-left: 100px;
+}
+
+#courses table {
+    margin-top: 15px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#courses thead {
+    border-bottom: 1px solid black;
+}
+
+#courses td, #courses th {
+    padding: 5px;
+    border-left: 1px solid black;
+}
+
+#courses td:first-child, #courses th:first-child {
+    border-left: none;
+}
