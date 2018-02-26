@@ -13,7 +13,6 @@ def add(req):
     errors = Course.objects.validate(req.POST)
     if len(errors):
         for error in errors:
-            print errors[error]
             messages.error(req, errors[error])
         return redirect('/')
     else:
