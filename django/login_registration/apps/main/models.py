@@ -22,11 +22,12 @@ class UserManager(models.Manager):
 
         if not EMAIL_REGEX.match(postData["email"]):
             errors["email"] = "Invalid email format."
-            # need to handle email duplicates
-        
+        elif len(User.objects.filter(email=postData["email"])):
+            errors["email"] = "Email already exists in database."
+
         if postData["password"] != postData["confirm"]:
             errors["password"] = "Passwords don't match."
-        
+
         return errors
 
 class User(models.Model):

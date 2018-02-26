@@ -22,7 +22,18 @@ def register(req):
         return redirect('/success')
 
 def login(req):
-    pass
+    try:
+        user = User.objects.get(email=req.POST["email"])
+    except:
+        messages.error(req, "Email not found.")
+        return redirect('/')
+
+    if bcrypt.checkpw(req.POST["password"].encode(), user.password.encode()):
+        req.session["id"] = user.id
+        return redirect('/success')
+    else:
+        messages.error(req, "Invalid password.")
+        return redirect('/')
 
 def success(req):
     user = User.objects.get(id=req.session["id"])
@@ -30,3 +41,9 @@ def success(req):
         "name": user.first_name
     }
     return render(req, "main/success.html", context)
+
+def clear(req):
+    all_users = User.objects.all()
+    for user in all_users:
+        user.delete()
+    return redirect('/')
